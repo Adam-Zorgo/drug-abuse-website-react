@@ -5,15 +5,16 @@ import BackgroundAssessment from '../assets/BackgroundAssessment.jpg';
 // Function to send risk level to a backend server
 const sendRiskLevelToServer = async (riskLevel) => {
   try {
-    const response = await fetch('/api/risk-count', {
+    const response = await fetch('http://localhost:3001/api/risk-count', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ riskLevel }),
     });
+
     if (!response.ok) {
-      throw new Error('Failed to update risk count on the server.');
+      throw new Error('Failed to update risk count.');
     }
   } catch (error) {
     console.error('Error updating risk count:', error);
@@ -37,30 +38,14 @@ const RiskAssessment = () => {
     }));
   };
 
-  const isAllAnswered = Object.keys(answers).length === questions.length;
-
-  const getRiskMessage = (totalScore) => {
+  const getRiskLevel = (totalScore) => {
     if (totalScore >= 15) {
-      return 'High risk. Please seek professional help.';
+      return 'high';
     } else if (totalScore >= 7) {
-      return 'Moderate risk. Consider talking to a counselor.';
+      return 'medium';
     } else {
-      return 'Low risk. Be happy! :)';
+      return 'low';
     }
-  };
-
-  const assessRisk = (totalScore) => {
-    let riskLevel;
-    if (totalScore >= 15) {
-      riskLevel = 'high';
-    } else if (totalScore >= 7) {
-      riskLevel = 'medium';
-    } else {
-      riskLevel = 'low';
-    }
-
-    sendRiskLevelToServer(riskLevel);
-    return getRiskMessage(totalScore);
   };
 
   const handleSubmit = () => {
@@ -70,14 +55,15 @@ const RiskAssessment = () => {
     }
 
     const totalScore = Object.values(answers).reduce((acc, cur) => acc + cur, 0);
-    const riskMessage = assessRisk(totalScore);
+    const riskLevel = getRiskLevel(totalScore);
 
-    alert(`Total Score: ${totalScore}\n${riskMessage}`);
+    sendRiskLevelToServer(riskLevel); // Send risk level to the backend
+
+    alert(`Total Score: ${totalScore}\nRisk Level: ${riskLevel.toUpperCase()}`);
   };
 
   return (
     <div
-      className="background-container"
       style={{
         backgroundImage: `url(${BackgroundAssessment})`,
         backgroundSize: 'cover',
@@ -85,33 +71,22 @@ const RiskAssessment = () => {
         minHeight: '100vh',
       }}
     >
-      <div className="risk-assessment-container">
-        <h1>Risk Assessment</h1>
-        <p>How likely am I to develop a dangerous drug addiction?</p>
-        {questions.map((question) => (
-          <div key={question.id} className="question-container">
-            <p>{question.question}</p>
-            <div className="options-container">
-              {question.options.map((option) => (
-                <button
-                  key={option.text}
-                  className={`option-button ${answers[question.id] === option.value ? 'selected' : ''}`}
-                  onClick={() => handleChange(question.id, option.value)}
-                >
-                  {option.text}
-                </button>
-              ))}
-            </div>
-          </div>
-        ))}
-        <button
-          className="submit-button"
-          onClick={handleSubmit}
-          disabled={!isAllAnswered}
-        >
-          Submit
-        </button>
-      </div>
+      <h1>Risk Assessment</h1>
+      {questions.map((question) => (
+        <div key={question.id}>
+          <p>{question.question}</p>
+          {question.options.map((option) => (
+            <button
+              key={option.text}
+              className={`option-button ${answers[question.id] === option.value ? 'selected' : ''}`}
+              onClick={() => handleChange(question.id, option.value)}
+            >
+              {option.text}
+            </button>
+          ))}
+        </div>
+      ))}
+      <button onClick={handleSubmit} disabled={!isAllAnswered}>Submit</button>
     </div>
   );
 };
