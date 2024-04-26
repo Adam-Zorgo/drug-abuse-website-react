@@ -1,25 +1,28 @@
 class Mutex {
-    constructor() {
-      this._queue = [];
-      this._isLocked = false;
-    }
-  
-    async lock() {
-      if (this._isLocked) {
-        const unlock = new Promise((resolve) => {
-          this._queue.push(resolve);
-        });
-        await unlock;
-      }
-      this._isLocked = true;
-    }
-  
-    unlock() {
-      if (this._queue.length > 0) {
-        const nextResolve = this._queue.shift();
-        nextResolve();
+  constructor() {
+    this.locked = false;
+    this.waiting = [];
+  }
+
+  lock() {
+    return new Promise((resolve) => {
+      if (!this.locked) {
+        this.locked = true;
+        resolve();
       } else {
-        this._isLocked = false;
+        this.waiting.push(resolve);
       }
+    });
+  }
+
+  unlock() {
+    if (this.waiting.length > 0) {
+      const next = this.waiting.shift();
+      next();
+    } else {
+      this.locked = false;
     }
   }
+}
+
+export default Mutex;
