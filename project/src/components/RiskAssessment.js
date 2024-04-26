@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import '../App.css'; // Include CSS for styling
+import BackgroundAssessment from '../assets/BackgroundAssessment.jpg';
+import Mutex from "./MutexRiskCounter"; // Your custom Mutex implementation
+const fs = require('fs');
 
 const RiskAssessment = () => {
     const [answers, setAnswers] = useState({});
