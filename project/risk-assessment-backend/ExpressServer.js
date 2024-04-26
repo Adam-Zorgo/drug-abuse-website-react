@@ -9,7 +9,7 @@ app.use(express.json()); // Enable parsing of JSON request bodies
 // Endpoint to write data to a file
 app.post('/api/risk-count', (req, res) => {
   const { riskLevel } = req.body; // Extract risk level from request
-  const filePath = path.resolve(__dirname, `${riskLevel}_risk_count.txt`); // Define file path based on risk level
+  const filePath = path.resolve(__dirname, `risk_count_${riskLevel}.txt`); // Define file path based on risk level
 
   try {
     // Read the current count, increment, and write back to the file
