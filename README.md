@@ -19,3 +19,6 @@ by Adam Zorgo + Emad Hassan
 5. Open the terminal in the risk-assessment-backround directory and start the ExpressServer.js
 6. Finally build and run with npm run.
 7. **Viola-** the website should be up and running on http://localhost:3000/
+![png-transparent-install-icon-installation-computer-icons-computer-software-installer-blue-text-logo](https://github.com/Adam-Zorgo/drug-abuse-website-react/assets/162918688/923b4698-09bb-4237-947e-a5ddeff610be)
+
+
