@@ -17,4 +17,5 @@ by Adam Zorgo + Emad Hassan
 2. Make sure you have Node.js installed.
 3. Open the terminal and install react-router-dom as well as react-icons and express.
 5. Open the terminal in the risk-assessment-backround directory and start the ExpressServer.js
-6. Finally build and run with '''npm run'''
+6. Finally build and run with npm run.
+7. **Viola-** the website should be up and running on http://localhost:3000/
