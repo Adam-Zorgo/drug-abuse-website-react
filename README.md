@@ -45,7 +45,7 @@ As can be seen above, the express server takes the number from the file of the r
 *MutexRiskCounter.js* is our (quite simple) js implementation of a basic mutex lock that we use to update the number values in the text files.
 ![image](https://github.com/Adam-Zorgo/drug-abuse-website-react/assets/162918688/cbd3c270-0dfa-4960-9a1b-6bb894ae1a24)
 
-*Navbar.js* was one of the most difficult elements of the website to get working correctly. It implements three reactive links as well as a drawer with a similar capabilities.
+*Navbar.js* was one of the most difficult elements of the website to get working correctly. It implements three reactive links as well as a drawer with similar capabilities.
 ![image](https://github.com/Adam-Zorgo/drug-abuse-website-react/assets/162918688/da40fff2-91b2-4976-b773-1028d5387dab)
 
 *RiskAssessment.js* is a very important page as it utilizes the mutex lock, as well as being the most dynamic part of the project.
