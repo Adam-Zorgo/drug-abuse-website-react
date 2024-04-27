@@ -62,6 +62,25 @@ As can be seen above, the express server takes the number from the file of the r
 ![image](https://github.com/Adam-Zorgo/drug-abuse-website-react/assets/162918688/f20623ca-c8f3-4a7d-b4e7-d9c735369c7c)
 
 
+## Results
+![image](https://github.com/Adam-Zorgo/drug-abuse-website-react/assets/162918688/79d70d5f-e556-4600-9602-ec1ebeff1672)
+![image](https://github.com/Adam-Zorgo/drug-abuse-website-react/assets/162918688/bc1aed14-9fdc-4506-8959-e40184264493)
+![image](https://github.com/Adam-Zorgo/drug-abuse-website-react/assets/162918688/b4a601c9-fba3-4d64-8324-68b987c5df11)
+![image](https://github.com/Adam-Zorgo/drug-abuse-website-react/assets/162918688/9b6f3eb7-8168-4b85-84b8-2c721b75dbbf)
+![image](https://github.com/Adam-Zorgo/drug-abuse-website-react/assets/162918688/52df8c1c-5dde-4e68-b723-cc46b2fbbc5a)
+
+
+## Discussion and Conclusions
+- Overall I think it was a successfull and enjoyable project, and I feel that we did well.
+- The Biggest issue we have is probably with the number update not always writing for some, still unknown reason.
+- The Largest challenge was probably just learning a new environment, as I am not normally a Javascript/React type of person.
+- Sometimes the formatting was glitchy, and it took hours to fix.
+- Regardless, I cannot complain about the experience. I think the website is quite good for this level and could definately be used in some capacity.
+
+
+
+
+
 
 
 
