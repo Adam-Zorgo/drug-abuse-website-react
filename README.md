@@ -1,5 +1,5 @@
 # Drug Abuse Prevention Website
-by Adam Zorgo + Emad Hassan
+by Adam Zorgo + Emad Hassan 
 
 ## Goals and Meaning of the Project
 
